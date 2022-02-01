@@ -15,7 +15,7 @@ extern "C"
 // Macros to control the visibility of functions provided by this package
 //
 #ifdef BUILDING_MIOK_DQUEUE_PACKAGE
-#define  __attribute__((visibility("default")))
+#define MIOK_DQUEUE_PUBLIC __attribute__((visibility("default")))
 #else
 #define MIOK_DQUEUE_PUBLIC
 #endif

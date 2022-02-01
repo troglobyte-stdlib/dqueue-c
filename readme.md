@@ -71,17 +71,30 @@ more please view the API documentation thanks.
 **Usage in C**:
 
 ```c
-#include <stdio>
-#include <stdlib>
-#include <miko/dqueue.h>
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <miok/dqueue.h>
 
 //
 // main is where all good examples start
 //
 int main(void)
 {
-    printf("%s", greet());
+    DeQueueOf *m_queue = miok_dqueue_create();
+    if (miok_dqueue_its_empty(m_queue))
+    {
+        return EXIT_FAILURE;
+    } // end if
+    miok_dqueue_push(m_queue, "hello");
+    miok_dqueue_push(m_queue, "crazy");
+    miok_dqueue_push(m_queue, "world");
+
+    while (miok_dqueue_not_empty(m_queue))
+    {
+        printf("%s ", miok_dqueue_peek(m_queue));
+        miok_dqueue_pop(m_queue);
+    } // end while
+    miok_dqueue_erase(&m_queue);
     return EXIT_SUCCESS;
 } // end of function main
 

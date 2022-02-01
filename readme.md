@@ -1,10 +1,13 @@
-# Miok package
+# Miok DQueue
 
 ## About
 
 * * *
 
-Please add relevant information about your package.
+The DQueue being like a Stack, Queue is a linear structure which follows a
+particular order in which the operations are performed. The order is First
+In First Out (FIFO). The main data type that is returned will be the classic
+c string or char array.
 
 The design of the API has significant impact on its usage. The principle of
 information hiding describes the role of programming interfaces as enabling
@@ -36,19 +39,19 @@ in your subprojects directory and include the dependency in your project.
 
 ```console
 [wrap-git]
-directory = miok-module
-url = https://github.com/miok-modules/module.git
+directory = miok-dqueue-c
+url = https://github.com/miok-modules/dqueue-c.git
 revision = main
 
 [provide]
-module = module_dep
+module = module_dqueue_dep
 ```
 
 
 The next step should be to add the package to your Meson project:
 
 ```meson
-module_dep = dependency('miko-module')
+module_dep = dependency('miko-dqueue-c')
 
 executable('prog', 'main.c',
     dependencies : [module_dep])
@@ -70,7 +73,7 @@ more please view the API documentation thanks.
 ```c
 #include <stdio>
 #include <stdlib>
-#include <miko/package.h>
+#include <miko/dqueue.h>
 
 
 //
